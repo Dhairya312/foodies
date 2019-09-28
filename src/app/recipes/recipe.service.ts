@@ -8,12 +8,13 @@ import { ShoppingService } from '../shopping-list/shopping.service';
 })
 
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+  // recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe(
       'Cake',
       'This is simply a test',
+      // tslint:disable-next-line: max-line-length
       'https://www.fergusonplarre.com.au/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/c/h/choc-drip-cake_6.jpg',
       [
         new Ingredient('Eggs', 5),
@@ -35,6 +36,10 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
