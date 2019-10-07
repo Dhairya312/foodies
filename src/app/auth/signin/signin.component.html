@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="mx-auto" style="width: 500px;">
+        <form (ngSubmit)="onSignin(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="username">E-mail</label>
+                <input 
+                    type="email" 
+                    id="username" 
+                    name="username" 
+                    ngModel 
+                    class="form-control"
+                    required
+                    email
+                >
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    ngModel 
+                    class="form-control"
+                    required
+                >
+            </div>
+            <button class="btn btn-primary" [disabled]="!f.valid" type="submit">Sign In</button>
+        </form>
+    </div>
+</div>

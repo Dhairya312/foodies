@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-12">
+    <h2 class="mb-3">
+      <span class="badge badge-info">{{ editMode ? 'Update' : 'Add' }} Recipe</span>
+    </h2>
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <input name="gradeId" id="gradeId" type="hidden" class="form-control" formControlName="gradeId">  
+          </div>
+          <div class="form-group">
+            <label class="badge badge-dark">
+              Customer name
+            </label>
+            <input 
+              name="gradeName" 
+              id="gradeName" 
+              type="text" 
+              class="form-control" 
+              formControlName="gradeName">
+            <div
+              *ngIf="customerForm.controls['gradeName'].invalid && (customerForm.controls['gradeName'].dirty || customerForm.controls['gradeName'].touched)"
+              class="alert alert-danger mt-1">
+              <div *ngIf="customerForm.controls['gradeName'].errors.required">
+                Name is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label class="badge badge-dark">
+              Customer Description
+            </label>
+            <textarea 
+              name="gradeDescription" 
+              id="gradeDescription" 
+              type="text" 
+              class="form-control"
+              formControlName="gradeDescription"
+            ></textarea>
+            <div
+              *ngIf="customerForm.controls['gradeDescription'].invalid && (customerForm.controls['gradeDescription'].dirty || customerForm.controls['gradeDescription'].touched)"
+              class="alert alert-danger mt-1">
+              <div *ngIf="customerForm.controls['gradeDescription'].errors.required">
+                Description is required.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-success" [disabled]="!customerForm.valid" type="submit">
+            Save
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-danger" (click)="onCancel()" type="button">
+            Cancle
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

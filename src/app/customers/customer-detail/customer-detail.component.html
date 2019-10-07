@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-12">
+    <h1>Grade Name: {{ customer.gradeName }}</h1>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-12">
+    <div class="dropdown" appDropdown>
+      <button type="button" class="btn btn-sm btn-primary dropdown-toggle">
+        Manage Customer <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" (click)="onEditCustomer()" style="cursor: pointer;">Edit Customer</a></li>
+        <li><a class="dropdown-item" (click)="onDeleteCustomer()" style="cursor: pointer;">Delete Customer</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h2>GradeId</h2>
+    {{ customer.gradeId }}
+    <br>
+    <h3>Description :-</h3><br>
+    {{ customer.gradeDescription }}
+  </div>
+</div>
+
