@@ -3,7 +3,9 @@ import { Subscription } from 'rxjs';
 
 import { ShoppingService } from './shopping.service';
 import { Ingredient } from '../shared/ingredient.model';
-
+import { Observable } from 'rxjs';
+import { interval } from 'rxjs';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-list',
@@ -19,6 +21,13 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    // const myNumber = interval(1000);
+    // myNumber.subscribe(
+    //   (number: number) => {
+    //     console.log(number);
+    //   }
+    // );
+
     this.ingredients = this.shoppingService.getIngredients();
     this.subscription = this.shoppingService.ingredientsChanged
       .subscribe(
@@ -26,6 +35,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
           this.ingredients = ingredients;
         }
       );
+  }
+  
+  onEditItem(index: number) {
+    this.shoppingService.startedEditing.next(index);
   }
 
   ngOnDestroy() {
