@@ -13,7 +13,7 @@ export class CustomerService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Bearer ' +this.authService.getToken(),
+      Authorization: 'Bearer ' + this.authService.getToken(),
     })
   };
   constructor(
@@ -25,7 +25,7 @@ export class CustomerService {
   setCustomer(customers) {
     this.customers = customers;
     this.customerChanged.next(this.customers.slice());
-  } 
+  }
 
   getCustomers() {
     return this.customers.slice();
@@ -38,7 +38,7 @@ export class CustomerService {
   addCustomer(customer: Customer) {
     // this.customers.push(customer);
     // this.customerChanged.next(this.customers.slice());
-    
+
     return this.http.post('http://demoao.neofruition.co.in:81/api/v1/grade/save', customer, this.httpOptions)
       .subscribe(
         (response) => {

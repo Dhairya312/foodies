@@ -13,5 +13,4 @@ export class DropdownDirective {
     this.isOpen = !this.isOpen;
     this._el.nativeElement.querySelector('.dropdown-menu').classList.toggle('show');
   }
-  
 }

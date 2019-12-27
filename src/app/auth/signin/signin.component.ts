@@ -26,7 +26,7 @@ export class SigninComponent implements OnInit {
     .subscribe(
       (response) => {
         let authToken : string = response["_body"];
-        authToken = authToken.replace("{authToken: Bearer ","").replace("}","");
+        authToken = authToken.replace('{authToken: Bearer ','').replace("}","");
         if(authToken){
           localStorage.setItem("authtoken",authToken);
           this.router.navigate(["/"]);

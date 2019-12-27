@@ -19,9 +19,9 @@ const routes: Routes = [
     { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuardService]  },
     { path: '', component: RecipeStartComponent },
     { path: ':id', component: RecipeDetailComponent },
-    { path: ':id/edit', component: RecipeEditComponent,canActivate: [AuthGuardService]  }
+    { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuardService]  }
   ]},
-  { path: 'shopping-list', component: ShoppingListComponent,canActivate: [AuthGuardService] },
+  { path: 'shopping-list', component: ShoppingListComponent, canActivate: [AuthGuardService] },
   { path: 'signupo', component: SignupoComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuardService], children: [
